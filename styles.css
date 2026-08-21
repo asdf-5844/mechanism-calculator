@@ -1,0 +1,275 @@
+:root {
+  --black: #111;
+  --dark: #333;
+  --gray: #707070;
+  --border: #dedede;
+  --surface: #f7f7f7;
+  --white: #fff;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--white);
+  color: var(--black);
+  font: 15px Arial, Helvetica, sans-serif;
+}
+
+button, input { font: inherit; }
+
+.site-header {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding: 0 max(24px, calc((100% - 1040px) / 2));
+  border-bottom: 1px solid var(--border);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .06em;
+}
+
+.wrap {
+  width: min(1040px, calc(100% - 40px));
+  margin: 32px auto;
+}
+
+.eyebrow, .result-label {
+  margin: 0;
+  color: var(--gray);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 12px 0 0;
+  font-size: clamp(38px, 6vw, 56px);
+  font-weight: 600;
+  letter-spacing: -.045em;
+}
+
+h1 em {
+  color: var(--gray);
+  font-style: normal;
+}
+
+.lead {
+  max-width: 560px;
+  margin: 17px 0 34px;
+  color: var(--gray);
+  line-height: 1.6;
+}
+
+.workspace {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 14px;
+  align-items: start;
+}
+
+.tools, .calculator {
+  border: 1px solid var(--border);
+  border-radius: 7px;
+}
+
+.tools { padding: 5px; }
+
+.tool {
+  width: 100%;
+  padding: 11px;
+  border: 0;
+  border-radius: 4px;
+  background: none;
+  color: var(--gray);
+  text-align: left;
+}
+
+.tool.active {
+  background: var(--black);
+  color: var(--white);
+}
+
+.soon {
+  float: right;
+  padding-top: 3px;
+  font-size: 8px;
+  text-transform: uppercase;
+}
+
+.calculator { overflow: hidden; }
+
+.calculator-header {
+  padding: 23px 26px;
+  border-bottom: 1px solid var(--border);
+}
+
+.calculator-header h2 {
+  margin: 0 0 6px;
+  font-size: 21px;
+}
+
+.calculator-header p {
+  margin: 0;
+  color: var(--gray);
+  font-size: 13px;
+}
+
+.calculator-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.inputs, .results { padding: 26px; }
+
+.inputs { border-right: 1px solid var(--border); }
+
+label {
+  display: block;
+  margin: 17px 0 7px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+label:first-child { margin-top: 0; }
+
+.input-group { position: relative; }
+
+.input-group input {
+  width: 100%;
+  padding: 12px 62px 12px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: white;
+  outline: none;
+}
+
+.input-group input:focus {
+  border-color: var(--black);
+  box-shadow: 0 0 0 2px #eee;
+}
+
+.input-group span {
+  position: absolute;
+  top: 14px;
+  right: 11px;
+  color: var(--gray);
+  font: 9px monospace;
+}
+
+.swap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 11px 0 -5px;
+}
+
+.swap::before, .swap::after {
+  content: "";
+  height: 1px;
+  flex: 1;
+  background: var(--border);
+}
+
+.swap button {
+  width: 28px;
+  height: 28px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  background: white;
+  cursor: pointer;
+}
+
+.error {
+  min-height: 14px;
+  margin: 9px 0 0;
+  font-size: 11px;
+}
+
+.actions {
+  display: flex;
+  gap: 7px;
+  margin-top: 9px;
+}
+
+.calculate, .reset {
+  padding: 11px 13px;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.calculate {
+  flex: 1;
+  border: 1px solid var(--black);
+  background: var(--black);
+  color: white;
+}
+
+.calculate:hover { background: var(--dark); }
+
+.reset {
+  width: 42px;
+  border: 1px solid #ccc;
+  background: white;
+}
+
+.results { background: var(--surface); }
+
+.ratio {
+  margin: 14px 0 8px;
+  font-size: clamp(44px, 6vw, 58px);
+  font-weight: 600;
+  letter-spacing: -.05em;
+}
+
+.ratio small {
+  color: var(--gray);
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.note {
+  margin: 0;
+  color: var(--gray);
+  font-size: 13px;
+}
+
+.metrics {
+  margin-top: 23px;
+  padding-top: 7px;
+  border-top: 1px solid var(--border);
+}
+
+.metric {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  margin: 14px 0;
+  color: var(--gray);
+  font-size: 12px;
+}
+
+.metric strong {
+  color: var(--black);
+  font-family: monospace;
+}
+
+@media (max-width: 700px) {
+  .workspace, .calculator-body { grid-template-columns: 1fr; }
+  .tools { display: flex; overflow-x: auto; }
+  .tool { min-width: max-content; }
+  .inputs { border-right: 0; border-bottom: 1px solid var(--border); }
+}
+
+@media (max-width: 480px) {
+  .wrap { width: calc(100% - 24px); margin: 36px auto; }
+  .calculator-header, .inputs, .results { padding: 21px; }
+}

@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="FTC gear ratio and drivetrain calculator.">
+  <title>FTC Mechanism Calculator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand"><span aria-hidden="true">&#9881;</span> FTC MECHANISM CALCULATOR</div>
+  </header>
+
+  <main class="wrap">
+
+    <section class="workspace" aria-label="Mechanism calculators">
+      <aside class="tools" aria-label="Available calculators">
+        <button class="tool active" type="button">Gear Ratio</button>
+        <button class="tool" type="button" disabled>Timing Belt <span class="soon">Soon</span></button>
+        <button class="tool" type="button" disabled>Wheel Speed <span class="soon">Soon</span></button>
+        <button class="tool" type="button" disabled>Chain Ratio <span class="soon">Soon</span></button>
+      </aside>
+
+      <section class="calculator">
+        <div class="calculator-header">
+          <h2>Gear ratio</h2>
+          <p>Calculate speed reduction, output RPM, and ideal torque multiplication for an FTC gear pair.</p>
+        </div>
+
+        <div class="calculator-body">
+          <form class="inputs" id="gear-form" novalidate>
+            <label for="driver-teeth">Driver gear</label>
+            <div class="input-group">
+              <input id="driver-teeth" type="number" min="1" step="1" value="20">
+              <span>TEETH</span>
+            </div>
+
+            <div class="swap">
+              <button id="swap-gears" type="button" aria-label="Swap driver and driven gears">&#8645;</button>
+            </div>
+
+            <label for="driven-teeth">Driven gear</label>
+            <div class="input-group">
+              <input id="driven-teeth" type="number" min="1" step="1" value="60">
+              <span>TEETH</span>
+            </div>
+
+            <label for="input-rpm">Input speed (optional)</label>
+            <div class="input-group">
+              <input id="input-rpm" type="number" min="0" step="any" value="1200">
+              <span>RPM</span>
+            </div>
+
+            <p class="error" id="error" role="alert"></p>
+            <div class="actions">
+              <button class="calculate" type="submit">Calculate ratio &rarr;</button>
+              <button class="reset" id="reset" type="button" aria-label="Reset calculator">&#8634;</button>
+            </div>
+          </form>
+
+          <div class="results" aria-live="polite">
+            <p class="result-label">Calculated ratio</p>
+            <div class="ratio"><span id="ratio">3.00</span> <small>: 1</small></div>
+            <p class="note" id="ratio-note">A 3.00:1 reduction.</p>
+
+            <div class="metrics">
+              <div class="metric"><span>Output speed</span><strong id="output-rpm">400.0 RPM</strong></div>
+              <div class="metric"><span>Speed change</span><strong id="speed-change">&minus;66.7%</strong></div>
+              <div class="metric"><span>Torque factor*</span><strong id="torque-factor">3.00&times;</strong></div>
+              <div class="metric"><span>Direction</span><strong>OPPOSITE</strong></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
